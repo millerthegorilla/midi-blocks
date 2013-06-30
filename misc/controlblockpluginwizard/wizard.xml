@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wizard version="1" kind="project" class="qt4project" id="A.ControlBlock" category="B.CustomProjects">
+    <description>Creates a MIDI Blocks Control Block Plugin.</description>
+    <displayname>MIDI Blocks Control Block Plugin</displayname>;
+    <displaycategory>Custom Projects</displaycategory>
+    <files>
+        <file source="controlblock.h" target="controlblock.%CppHeaderSuffix%" openeditor="true"/>
+        <file source="mycontrolblock.cpp" target="%ProjectName:l%.%CppSourceSuffix%" openeditor="true"/>
+        <file source="mycontrolblock.h" target="%ProjectName:l%.%CppHeaderSuffix%" openeditor="true"/>
+        <file source="mycontrolblockeditor.ui" target="%ProjectName:l%editor.ui" openeditor="true"/>
+        <file source="mycontrolblock.pro" target="%ProjectName%.pro" openproject="true"/>
+    </files>
+</wizard>
