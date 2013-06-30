@@ -14,12 +14,12 @@ commands in the top directory of the project:
     qmake
     make
 
-You can then install the MidiBlocks binary in /usr/local/bin
+You can then install the midi-blocks binary in /usr/local/bin
 and the plugins in /usr/local/share/MidiBlocks with:
 
     make install
 
-Before running MidiBlocks on Linux (with the AudioToMidiBlock),
+Before running midi-blocks on Linux (with the AudioToMidiBlock),
 you should make sure that you are running the JACK audio server
 with your desired settings.
 
