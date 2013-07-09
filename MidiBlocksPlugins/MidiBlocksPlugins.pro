@@ -11,6 +11,10 @@ SUBDIRS = \
         MidiInBlock\
         MidiOutBlock\
         SplitterBlock\
-        TransposeBlock \
+        TransposeBlock
+
+unix {
+SUBDIRS += \
         AudioToMidiBlock \
         VirtualInBlock
+}

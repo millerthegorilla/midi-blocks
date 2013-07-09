@@ -47,9 +47,9 @@ signals:
     
 public slots:
     //Prefix visible inputs with "receive"
-    void receiveTonic(QByteArray message);
-    void receiveScale_Degree(QByteArray message);
-    void receiveTrigger(QByteArray message);
+    //void receiveTonic(QByteArray message);
+    //void receiveScale_Degree(QByteArray message);
+    //void receiveTrigger(QByteArray message);
     
 private:
     Ui::ChordBlockEditor* editorUi;

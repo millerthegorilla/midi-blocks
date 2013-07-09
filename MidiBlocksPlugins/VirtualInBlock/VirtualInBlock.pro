@@ -1,6 +1,4 @@
 
-# virtual ins don't work on windows
-unix {
 
 LIBS += -lasound -lpthread
 QMAKE_CXXFLAGS = -D__LINUX_ALSA__
@@ -17,7 +15,6 @@ TARGET        = $$qtLibraryTarget(virtualinblockplugin)
 
 target.path = /usr/local/share/MidiBlocks/plugins
 INSTALLS += target
-}
 
 
 
