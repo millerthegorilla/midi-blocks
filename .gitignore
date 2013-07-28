@@ -10,6 +10,9 @@
 *.dll
 *.dylib
 
+# windows executables
+*.exe
+
 # Qt-es
 
 *.pro.user
@@ -20,6 +23,7 @@ Makefile
 *-build-*
 *.Release
 *.Debug
+ui_*.h
 
 # Temps
 *~
