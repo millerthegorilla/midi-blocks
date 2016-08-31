@@ -17,14 +17,14 @@
   */
 
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include <QGraphicsView>
+//#include "ui_mainwindow.h"
+#include <QtWidgets/QGraphicsView>
 #include "controlblock.h"
 #include <QDebug>
 
 #include <QPluginLoader>
 #include <QDir>
-#include <QApplication>
+#include <QtWidgets/QApplication>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

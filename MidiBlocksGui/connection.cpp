@@ -18,7 +18,7 @@
 
 #include "connection.h"
 #include <QPainter>
-#include <QGraphicsSceneMouseEvent>
+#include <QtWidgets/QGraphicsSceneMouseEvent>
 #include <QDebug>
 
 Connection::Connection(QGraphicsItem *parent) :

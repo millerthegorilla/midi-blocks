@@ -19,9 +19,9 @@
 #ifndef CONTROLBLOCKGRAPHICSITEM_H
 #define CONTROLBLOCKGRAPHICSITEM_H
 
-#include <QGraphicsObject>
+#include <QtWidgets/QGraphicsObject>
 #include "controlblock.h"
-#include <QGraphicsProxyWidget>
+#include <QtWidgets/QGraphicsProxyWidget>
 
 
 /*!

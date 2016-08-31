@@ -19,8 +19,8 @@
 #ifndef CONTROLGRAPHICSSCENE_H
 #define CONTROLGRAPHICSSCENE_H
 
-#include <QGraphicsScene>
-#include <QGraphicsSceneDragDropEvent>
+#include <QtWidgets/QGraphicsScene>
+#include <QtWidgets/QGraphicsSceneDragDropEvent>
 #include "controlblock.h"
 #include "controlblockgraphicsitem.h"
 

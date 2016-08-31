@@ -18,7 +18,7 @@
 
 #include "controlgraphicsscene.h"
 #include "connection.h"
-#include <QGraphicsSceneMouseEvent>
+#include <QtWidgets/QGraphicsSceneMouseEvent>
 #include <QDebug>
 
 #include <QPluginLoader>

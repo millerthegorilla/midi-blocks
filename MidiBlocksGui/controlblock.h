@@ -21,7 +21,7 @@
 
 #include <QtPlugin>
 #include <QString>
-#include <QWidget>
+#include <QtWidgets/QWidget>
 
 /*!
 

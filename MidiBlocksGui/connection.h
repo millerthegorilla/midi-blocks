@@ -19,7 +19,7 @@
 #ifndef CONNECTION_H
 #define CONNECTION_H
 
-#include <QGraphicsObject>
+#include <QtWidgets/QGraphicsObject>
 #include "controlblockgraphicsitem.h"
 
 /*!

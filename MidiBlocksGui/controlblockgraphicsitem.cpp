@@ -20,7 +20,7 @@
 #include <QPainter>
 #include <QMetaObject>
 #include <QMetaMethod>
-#include <QGraphicsSceneHoverEvent>
+#include <QtWidgets/QGraphicsSceneHoverEvent>
 #include <QDebug>
 
 ControlBlockGraphicsItem::ControlBlockGraphicsItem()
