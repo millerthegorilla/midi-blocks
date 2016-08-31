@@ -1,4 +1,4 @@
-# MIDI Blocks
+# MIDI Blocks - this project has been forked from https://github.com/adamtnash/midi-blocks
 
 A GUI that lets you manipulate MIDI in fun ways!
 
