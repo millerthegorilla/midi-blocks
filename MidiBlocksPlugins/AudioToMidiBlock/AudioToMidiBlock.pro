@@ -1,5 +1,4 @@
-
-
+QT += widgets
 
 #this currently only works in linux with JACK
 #TODO: make it work with windows

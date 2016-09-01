@@ -21,7 +21,6 @@
 
 #include <QtPlugin>
 #include <QString>
-#include <QWidget>
 
 class ControlBlock : public QObject
 {

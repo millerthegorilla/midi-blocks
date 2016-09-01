@@ -20,7 +20,7 @@
 #define MIDIINBLOCK_H
 
 #include "controlblock.h"
-#include <QWidget>
+#include <QtWidgets/QWidget>
 #include "RtMidi.h"
 #include <QTimer>
 

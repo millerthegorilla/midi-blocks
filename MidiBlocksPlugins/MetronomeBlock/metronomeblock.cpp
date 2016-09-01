@@ -73,5 +73,6 @@ void MetronomeBlock::prepareBeat()
     emit sendBeat(QByteArray());
 }
 
-Q_PLUGIN_METADATA(metronomeblockplugin, MetronomeBlock)
+//Q_PLUGIN_METADATA(metronomeblockplugin, MetronomeBlock)
+Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QMetronomeBlock" FILE "metronome.json")
 

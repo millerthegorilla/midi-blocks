@@ -72,5 +72,5 @@ void BeatDividerBlock::receiveBeat(QByteArray message)
     }
 }
 
-Q_PLUGIN_METADATA(beatdividerblockplugin, BeatDividerBlock)
-
+//Q_PLUGIN_METADATA(beatdividerblockplugin, BeatDividerBlock)
+Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QBeatDividerBlock" FILE "beatdividerblock.json")

@@ -57,5 +57,5 @@ ControlBlock* ChordBlock::createDefaultBlock()
     return new ChordBlock();
 }
 
-Q_PLUGIN_METADATA(chordblockplugin, ChordBlock)
-
+//Q_PLUGIN_METADATA(chordblockplugin, ChordBlock)
+Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QChordBlock" FILE "chordblock.json")

@@ -165,5 +165,5 @@ void ArpeggiatorBlock::receiveNote_Off(QByteArray message)
     }
 }
 
-Q_PLUGIN_METADATA(arpeggiatorblockplugin, ArpeggiatorBlock)
-
+//Q_PLUGIN_METADATA(arpeggiatorblockplugin, ArpeggiatorBlock)
+Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QArpeggiatorBlock" FILE "arpeggiator.json")

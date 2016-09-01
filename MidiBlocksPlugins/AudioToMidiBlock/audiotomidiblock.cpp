@@ -252,5 +252,5 @@ void AudioToMidiBlock::setNotes(QByteArray notes)
     editorUi->le_notes->setText(noteList);
 }
 
-Q_PLUGIN_METADATA(audiotomidiblockplugin, AudioToMidiBlock)
-
+//Q_PLUGIN_METADATA(audiotomidiblockplugin, AudioToMidiBlock)
+Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QAudioToMidiBlock" FILE "audiotomidiblock.json")

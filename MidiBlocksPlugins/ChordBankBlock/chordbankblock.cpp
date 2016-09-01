@@ -128,5 +128,6 @@ void ChordBankBlock::removeChord()
     }
 }
 
-Q_PLUGIN_METADATA(chordbankblockplugin, ChordBankBlock)
+//Q_PLUGIN_METADATA(chordbankblockplugin, ChordBankBlock)
+Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QChordBankBlock" FILE "chordbankblock.json")
 

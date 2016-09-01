@@ -20,7 +20,7 @@
 #define TRANSPOSEBLOCK_H
 
 #include "controlblock.h"
-#include <QWidget>
+#include <QtWidgets/QWidget>
 #include <QSet>
 
 namespace Ui {

@@ -73,5 +73,5 @@ void BeatToggleBlock::receiveBeat(QByteArray message)
     }
 }
 
-Q_PLUGIN_METADATA(beattoggleblockplugin, BeatToggleBlock)
-
+//Q_PLUGIN_METADATA(beattoggleblockplugin, BeatToggleBlock)
+Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QBeatToggleBlock" FILE "beattoggleblock.json")

@@ -73,5 +73,5 @@ void SplitterBlock::receiveInput(QByteArray message)
     }
 }
 
-Q_PLUGIN_METADATA(splitterblockplugin, SplitterBlock)
-
+//Q_PLUGIN_METADATA(splitterblockplugin, SplitterBlock)
+Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QSplitterBlock" FILE "splitterblock.json")

@@ -19,7 +19,7 @@
 #ifndef CHORDEDITOR_H
 #define CHORDEDITOR_H
 
-#include <QWidget>
+#include <QtWidgets/QWidget>
 #include <QMap>
 
 namespace Ui {

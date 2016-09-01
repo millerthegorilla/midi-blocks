@@ -76,5 +76,6 @@ void ChannelBlock::receiveInput(QByteArray message)
     emit sendOutput(message);
 }
 
-Q_PLUGIN_METADATA(channelblockplugin, ChannelBlock)
+//Q_PLUGIN_METADATA(channelblockplugin, ChannelBlock)
+Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QChannelBlock" FILE "channelblock.json")
 

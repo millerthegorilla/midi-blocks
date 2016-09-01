@@ -20,7 +20,7 @@
 #define BEATDIVIDERBLOCK_H
 
 #include "controlblock.h"
-#include <QWidget>
+#include <QtWidgets/QWidget>
 
 namespace Ui {
 class BeatDividerBlockEditor;

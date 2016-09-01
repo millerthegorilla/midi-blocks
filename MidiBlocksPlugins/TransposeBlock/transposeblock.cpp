@@ -270,5 +270,6 @@ unsigned char TransposeBlock::transposeNote(const unsigned char& note)
     return transposedNote;
 }
 
-Q_PLUGIN_METADATA(transposeblockplugin, TransposeBlock)
+//Q_PLUGIN_METADATA(transposeblockplugin, TransposeBlock)
+Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QTransposeBlock" FILE "transposeblock.json")
 

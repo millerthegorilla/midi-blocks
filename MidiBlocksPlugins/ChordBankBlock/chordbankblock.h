@@ -20,7 +20,7 @@
 #define CHORDBANKBLOCK_H
 
 #include "controlblock.h"
-#include <QWidget>
+#include <QtWidgets/QWidget>
 #include "chordbankmodel.h"
 #include "chordeditor.h"
 

@@ -21,7 +21,7 @@
 
 #include "RtMidi.h"
 #include "controlblock.h"
-#include <QWidget>
+#include <QtWidgets/QWidget>
 #include <QList>
 
 namespace Ui {

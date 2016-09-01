@@ -88,5 +88,6 @@ void VirtualInBlock::receiveMIDI(QByteArray message)
     m_virtualIn->sendMessage(&vectorMessage);
 }
 
-Q_PLUGIN_METADATA(virtualinblockplugin, VirtualInBlock)
+//Q_PLUGIN_METADATA(virtualinblockplugin, VirtualInBlock)
+Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QVirtualInBlock" FILE "virtualinblock.json")
 
