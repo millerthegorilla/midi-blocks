@@ -19,9 +19,12 @@
 #include "controlgraphicsscene.h"
 #include "connection.h"
 #include <QtWidgets/QGraphicsSceneMouseEvent>
+#include <QGraphicsSceneDragDropEvent>
 #include <QDebug>
-
+#include <QMimeData>
+#include <QTransform>
 #include <QPluginLoader>
+/*#include "pluginlistmodel.h"*/
 
 ControlGraphicsScene::ControlGraphicsScene(QObject *parent) :
     QGraphicsScene(parent)
@@ -95,8 +98,14 @@ void ControlGraphicsScene::clearConnectionState()
 void ControlGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     QPointF pos = event->scenePos();
+
+//    if(views().size() > 0)
+//        {
+//            QGraphicsView* v = views().at(0);
+//            t = v->transform();
+//        }
     ControlBlockGraphicsItem* item =
-            dynamic_cast<ControlBlockGraphicsItem*>(this->itemAt(pos.x(), pos.y()));
+            dynamic_cast<ControlBlockGraphicsItem*>(this->itemAt(event->scenePos(), QTransform()));
 
     if (item)
     {
@@ -117,8 +126,14 @@ void ControlGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
 void ControlGraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     QPointF pos = event->scenePos();
+//    QTransform t;
+//    if(views().size() > 0)
+//        {
+//            QGraphicsView* v = views().at(0);
+//            t = v->transform();
+//        }
     ControlBlockGraphicsItem* item =
-            dynamic_cast<ControlBlockGraphicsItem*>(this->itemAt(pos.x(), pos.y()));
+            dynamic_cast<ControlBlockGraphicsItem*>(this->itemAt(event->scenePos(), QTransform()));
 
     if (item && m_currSenderItem)
     {
@@ -142,7 +157,7 @@ void ControlGraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     QPointF pos = event->scenePos();
     ControlBlockGraphicsItem* item =
-            dynamic_cast<ControlBlockGraphicsItem*>(this->itemAt(pos.x(), pos.y()));
+            dynamic_cast<ControlBlockGraphicsItem*>(this->itemAt(event->scenePos(),QTransform()));
 
     foreach (ControlBlockGraphicsItem* cbitem, m_items)
     {

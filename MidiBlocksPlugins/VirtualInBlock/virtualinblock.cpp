@@ -88,5 +88,5 @@ void VirtualInBlock::receiveMIDI(QByteArray message)
     m_virtualIn->sendMessage(&vectorMessage);
 }
 
-Q_EXPORT_PLUGIN2(virtualinblockplugin, VirtualInBlock)
+Q_PLUGIN_METADATA(virtualinblockplugin, VirtualInBlock)
 

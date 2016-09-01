@@ -162,5 +162,5 @@ void MidiOutBlock::receiveMIDI(QByteArray message)
     m_midiOut->sendMessage(&vectorMessage);
 }
 
-Q_EXPORT_PLUGIN2(midioutblockplugin, MidiOutBlock)
+Q_PLUGIN_METADATA(midioutblockplugin, MidiOutBlock)
 

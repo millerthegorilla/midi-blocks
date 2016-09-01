@@ -76,5 +76,5 @@ void ChannelBlock::receiveInput(QByteArray message)
     emit sendOutput(message);
 }
 
-Q_EXPORT_PLUGIN2(channelblockplugin, ChannelBlock)
+Q_PLUGIN_METADATA(channelblockplugin, ChannelBlock)
 

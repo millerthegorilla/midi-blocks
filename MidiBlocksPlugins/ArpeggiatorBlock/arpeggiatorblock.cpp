@@ -165,5 +165,5 @@ void ArpeggiatorBlock::receiveNote_Off(QByteArray message)
     }
 }
 
-Q_EXPORT_PLUGIN2(arpeggiatorblockplugin, ArpeggiatorBlock)
+Q_PLUGIN_METADATA(arpeggiatorblockplugin, ArpeggiatorBlock)
 

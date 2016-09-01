@@ -73,5 +73,5 @@ void MetronomeBlock::prepareBeat()
     emit sendBeat(QByteArray());
 }
 
-Q_EXPORT_PLUGIN2(metronomeblockplugin, MetronomeBlock)
+Q_PLUGIN_METADATA(metronomeblockplugin, MetronomeBlock)
 

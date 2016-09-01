@@ -16,8 +16,8 @@
 
   */
 
+#include "ui_mainwindow.h"
 #include "mainwindow.h"
-//#include "ui_mainwindow.h"
 #include <QtWidgets/QGraphicsView>
 #include "controlblock.h"
 #include <QDebug>

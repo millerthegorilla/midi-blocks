@@ -23,7 +23,8 @@
 #include <QtWidgets/QGraphicsSceneHoverEvent>
 #include <QDebug>
 
-ControlBlockGraphicsItem::ControlBlockGraphicsItem()
+ControlBlockGraphicsItem::ControlBlockGraphicsItem(/*QGraphicsItem *parent*/) //:
+    //QGraphicsObject (parent)
 {
     m_block = 0;
     m_proxyWidget = new QGraphicsProxyWidget(this);
@@ -34,7 +35,7 @@ ControlBlockGraphicsItem::ControlBlockGraphicsItem()
              | QGraphicsItem::ItemIsSelectable
              | QGraphicsItem::ItemIsFocusable);
 
-    setAcceptsHoverEvents(true);
+    this->setAcceptHoverEvents(true);
 
     m_blockWidth = 100;
     m_blockHeight = 100;
@@ -191,7 +192,7 @@ void ControlBlockGraphicsItem::setControlBlock(ControlBlock* block)
     for (int i = 0; i<metaObject->methodCount(); i++)
     {
         method = metaObject->method(i);
-        QString signature = metaObject->normalizedSignature(method.signature());
+        QString signature = metaObject->normalizedSignature(method.methodSignature());
         if (method.methodType() == QMetaMethod::Signal && signature.startsWith("send"))
         {
             QString name = signature.mid(4, signature.indexOf('(')-4);

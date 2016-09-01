@@ -128,5 +128,5 @@ void ChordBankBlock::removeChord()
     }
 }
 
-Q_EXPORT_PLUGIN2(chordbankblockplugin, ChordBankBlock)
+Q_PLUGIN_METADATA(chordbankblockplugin, ChordBankBlock)
 

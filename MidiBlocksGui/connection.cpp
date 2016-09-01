@@ -32,7 +32,7 @@ Connection::Connection(QGraphicsItem *parent) :
     setFlags(QGraphicsItem::ItemIsSelectable
              | QGraphicsItem::ItemIsFocusable);
 
-    setAcceptsHoverEvents(true);
+    //setAcceptsHoverEvents(true);
 
     setPos(0,0);
 

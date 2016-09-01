@@ -73,5 +73,5 @@ void BeatToggleBlock::receiveBeat(QByteArray message)
     }
 }
 
-Q_EXPORT_PLUGIN2(beattoggleblockplugin, BeatToggleBlock)
+Q_PLUGIN_METADATA(beattoggleblockplugin, BeatToggleBlock)
 

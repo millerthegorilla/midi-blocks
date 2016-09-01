@@ -73,5 +73,5 @@ void SplitterBlock::receiveInput(QByteArray message)
     }
 }
 
-Q_EXPORT_PLUGIN2(splitterblockplugin, SplitterBlock)
+Q_PLUGIN_METADATA(splitterblockplugin, SplitterBlock)
 

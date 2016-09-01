@@ -57,5 +57,5 @@ ControlBlock* ChordBlock::createDefaultBlock()
     return new ChordBlock();
 }
 
-Q_EXPORT_PLUGIN2(chordblockplugin, ChordBlock)
+Q_PLUGIN_METADATA(chordblockplugin, ChordBlock)
 

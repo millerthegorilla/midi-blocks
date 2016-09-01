@@ -270,5 +270,5 @@ unsigned char TransposeBlock::transposeNote(const unsigned char& note)
     return transposedNote;
 }
 
-Q_EXPORT_PLUGIN2(transposeblockplugin, TransposeBlock)
+Q_PLUGIN_METADATA(transposeblockplugin, TransposeBlock)
 

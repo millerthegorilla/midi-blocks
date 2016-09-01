@@ -72,5 +72,5 @@ void BeatDividerBlock::receiveBeat(QByteArray message)
     }
 }
 
-Q_EXPORT_PLUGIN2(beatdividerblockplugin, BeatDividerBlock)
+Q_PLUGIN_METADATA(beatdividerblockplugin, BeatDividerBlock)
 

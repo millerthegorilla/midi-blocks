@@ -39,7 +39,7 @@ class ControlBlockGraphicsItem : public QGraphicsObject
 {
     Q_OBJECT
 public:
-    ControlBlockGraphicsItem();
+    ControlBlockGraphicsItem(/*QGraphicsItem *parent = 0*/);
     ~ControlBlockGraphicsItem();
 
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);

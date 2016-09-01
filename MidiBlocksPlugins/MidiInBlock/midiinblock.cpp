@@ -168,5 +168,5 @@ void MidiInBlock::input(double deltatime, std::vector< unsigned char > *message)
 
     emit sendInput(messageCopy);
 }
-Q_EXPORT_PLUGIN2(midiinblockplugin, MidiInBlock)
+Q_PLUGIN_METADATA(midiinblockplugin, MidiInBlock)
 
