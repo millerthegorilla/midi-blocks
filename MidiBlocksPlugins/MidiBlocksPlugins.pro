@@ -3,20 +3,23 @@
 TEMPLATE = subdirs
 
 SUBDIRS = \
-        ArpeggiatorBlock\
-        BeatDividerBlock\
-        BeatToggleBlock\
-        ChannelBlock\
-        ChordBankBlock\
-        ChordBlock\
-        MetronomeBlock\
-        MidiInBlock\
-        MidiOutBlock\
-        SplitterBlock\
-        TransposeBlock
+        arpeggiatorblock\
+        beatdividerblock\
+        beattoggleblock\
+        channelblock\
+        chordbankblock\
+        chordblock\
+        metronomeblock\
+        midiinblock\
+        midioutblock\
+        splitterblock\
+        transposeblock
 
 unix {
 SUBDIRS += \
-        AudioToMidiBlock \
-        VirtualInBlock
+        audiotomidiblock \
+        virtualinblock
 }
+
+
+

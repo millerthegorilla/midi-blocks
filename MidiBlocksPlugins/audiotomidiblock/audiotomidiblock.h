@@ -23,7 +23,7 @@
 #include <QtWidgets/QWidget>
 #include <QMap>
 
-#include "CLAM/Network.hxx"
+#include <CLAM/Network.hxx>
 
 
 namespace Ui {

@@ -21,7 +21,6 @@
 
 #include <QtWidgets/QGraphicsObject>
 #include "controlblockgraphicsitem.h"
-
 /*!
 
 \class Connection connection.h

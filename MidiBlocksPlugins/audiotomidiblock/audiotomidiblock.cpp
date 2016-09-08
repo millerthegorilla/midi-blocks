@@ -18,11 +18,12 @@
 
 #include "audiotomidiblock.h"
 #include "ui_audiotomidiblockeditor.h"
-#include "CLAM/AudioManager.hxx"
-#include "CLAM/AudioSource.hxx"
+
+#include <CLAM/AudioManager.hxx>
+#include <CLAM/AudioSource.hxx>
 #include <CLAM/ProcessingFactory.hxx>
-#include "CLAM/JACKNetworkPlayer.hxx"
-#include "CLAM/TonalAnalysis.hxx"
+#include <CLAM/JACKNetworkPlayer.hxx>
+#include <CLAM/TonalAnalysis.hxx>
 #include <QDebug>
 
 #include "chordprocessing.h"

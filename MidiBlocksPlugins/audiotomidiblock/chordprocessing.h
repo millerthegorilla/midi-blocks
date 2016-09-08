@@ -21,9 +21,9 @@
 
 #include <CLAM/InPort.hxx>
 #include <CLAM/OutPort.hxx>
-#include "CLAM/Processing.hxx"
-#include "CLAM/ChordSegmentator.hxx"
-#include "CLAM/DiscontinuousSegmentation.hxx"
+#include <CLAM/Processing.hxx>
+#include <CLAM/ChordSegmentator.hxx>
+#include <CLAM/DiscontinuousSegmentation.hxx>
 
 #include <QObject>
 #include <QString>
