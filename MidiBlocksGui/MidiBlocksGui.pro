@@ -26,6 +26,19 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui
 
-target.path = /usr/local/bin/
-INSTALLS += target
+INSTALL_PATH = "usr/local/bin"
+PLUGIN_PATH = "usr/local/share/MidiBlocks/plugins"
 
+CONFIG(debug, debug|release) {
+     INSTALL_PATH = $$top_builddir/$$INSTALL_PATH
+     PLUGIN_PATH = $$top_builddir/$$PLUGIN_PATH
+     !exists($$INSTALL_PATH) { system( mkdir -p $$INSTALL_PATH ) }
+     !exists($$PLUGIN_PATH) { system( mkdir -p $$PLUGIN_PATH ) }
+}
+
+DEFINES += "INSTALL_PATH=\\\"$$INSTALL_PATH\\\""
+DEFINES += "PLUG_PATH=\\\"$$PLUGIN_PATH\\\""
+
+target.path = $$INSTALL_PATH
+
+INSTALLS += target

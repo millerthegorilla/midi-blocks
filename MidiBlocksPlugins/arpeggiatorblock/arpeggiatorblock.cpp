@@ -35,6 +35,7 @@ ArpeggiatorBlock::ArpeggiatorBlock(QObject *parent) :
     editorUi->cb_mode->addItem("Descending");
 
     m_currentIndex = 0;
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QArpeggiatorBlock")
 }
 
 ArpeggiatorBlock::~ArpeggiatorBlock()
@@ -166,4 +167,4 @@ void ArpeggiatorBlock::receiveNote_Off(QByteArray message)
 }
 
 //Q_PLUGIN_METADATA(arpeggiatorblockplugin, ArpeggiatorBlock)
-Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QArpeggiatorBlock" FILE "arpeggiator.json")
+

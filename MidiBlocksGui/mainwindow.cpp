@@ -64,7 +64,7 @@ void MainWindow::loadPlugins()
     }
 
     QDir pluginsDir = QDir(QApplication::applicationDirPath());
-    pluginsDir.cd("/usr/local/share/MidiBlocks/plugins");
+    pluginsDir.cd(PLUG_PATH);
 
     foreach (QString fileName, pluginsDir.entryList(QDir::Files))
     {

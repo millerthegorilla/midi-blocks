@@ -40,6 +40,8 @@ VirtualInBlock::VirtualInBlock(QObject *parent) :
     {
         m_virtualIn = 0;
     }
+
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QVirtualInBlock")
 }
 
 VirtualInBlock::~VirtualInBlock()
@@ -89,5 +91,4 @@ void VirtualInBlock::receiveMIDI(QByteArray message)
 }
 
 //Q_PLUGIN_METADATA(virtualinblockplugin, VirtualInBlock)
-Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QVirtualInBlock" FILE "virtualinblock.json")
 

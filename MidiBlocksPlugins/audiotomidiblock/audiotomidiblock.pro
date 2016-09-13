@@ -12,12 +12,20 @@ SOURCES       = audiotomidiblock.cpp \
 FORMS         = audiotomidiblockeditor.ui
 TARGET        = $$qtLibraryTarget(audiotomidiblockplugin)
 
-target.path = /usr/local/share/MidiBlocks/plugins
+PLUGIN_PATH = "usr/local/share/MidiBlocks/plugins"
+
+CONFIG(debug, debug|release) {
+     INSTALL_PATH = $$top_builddir/$$PLUGIN_PATH
+     !exists($$PLUGIN_PATH) { system( mkdir -p $$PLUGIN_PATH ) }
+}
+
+target.path = $$INSTALL_PATH
+
 INSTALLS += target
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../CLAM-1.4.0/scons/libs/core/release/ -llibclam_core
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../CLAM-1.4.0/scons/libs/core/debug/ -lclam_core
-else:unix: LIBS += -L$$PWD/../../CLAM-1.4.0/scons/libs/core/ -llibclam_core
+else:unix: LIBS += -L$$PWD/../../CLAM-1.4.0/scons/libs/core/ -lclam_core
 
 INCLUDEPATH += $$PWD/../../CLAM-1.4.0/scons/libs/core/include/
 DEPENDPATH += $$PWD/../../CLAM-1.4.0/scons/libs/core

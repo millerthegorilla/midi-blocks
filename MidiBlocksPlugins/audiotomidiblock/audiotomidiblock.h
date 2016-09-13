@@ -24,7 +24,7 @@
 #include <QMap>
 
 #include <CLAM/Network.hxx>
-
+#include <CLAM/Err.hxx>
 
 namespace Ui {
 class AudioToMidiBlockEditor;

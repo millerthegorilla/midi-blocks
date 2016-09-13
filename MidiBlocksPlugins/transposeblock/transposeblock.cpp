@@ -43,6 +43,8 @@ TransposeBlock::TransposeBlock(QObject *parent) :
     }
 
     setupConsonantMap();
+
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QTransposeBlock")
 }
 
 TransposeBlock::~TransposeBlock()
@@ -271,5 +273,4 @@ unsigned char TransposeBlock::transposeNote(const unsigned char& note)
 }
 
 //Q_PLUGIN_METADATA(transposeblockplugin, TransposeBlock)
-Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QTransposeBlock" FILE "transposeblock.json")
 

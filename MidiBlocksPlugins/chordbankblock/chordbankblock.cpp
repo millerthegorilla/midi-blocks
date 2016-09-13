@@ -42,6 +42,8 @@ ChordBankBlock::ChordBankBlock(QObject *parent) :
             this, SLOT(addChord()));
     connect(editorUi->pb_remove, SIGNAL(clicked()),
             this, SLOT(removeChord()));
+
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QChordBankBlock" FILE "chordbankblock.json")
 }
 
 ChordBankBlock::~ChordBankBlock()
@@ -129,5 +131,4 @@ void ChordBankBlock::removeChord()
 }
 
 //Q_PLUGIN_METADATA(chordbankblockplugin, ChordBankBlock)
-Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QChordBankBlock" FILE "chordbankblock.json")
 

@@ -44,6 +44,8 @@ MidiInBlock::MidiInBlock(QObject *parent) :
     }
 
     probeMidiIns();
+
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QMidiInBlock")
 }
 
 MidiInBlock::~MidiInBlock()
@@ -169,5 +171,4 @@ void MidiInBlock::input(double deltatime, std::vector< unsigned char > *message)
     emit sendInput(messageCopy);
 }
 //Q_PLUGIN_METADATA(midiinblockplugin, MidiInBlock)
-Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QMidiInBlock" FILE "midiinblock.json")
 

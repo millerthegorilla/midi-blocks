@@ -24,6 +24,8 @@
 #include <CLAM/ProcessingFactory.hxx>
 #include <CLAM/JACKNetworkPlayer.hxx>
 #include <CLAM/TonalAnalysis.hxx>
+#include <CLAM/Err.hxx>
+
 #include <QDebug>
 
 #include "chordprocessing.h"
@@ -150,6 +152,7 @@ AudioToMidiBlock::AudioToMidiBlock(QObject *parent) :
     m_network.SetPlayer(new CLAM::JACKNetworkPlayer );
 
     m_network.Start();
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QAudioToMidiBlock")
 }
 
 AudioToMidiBlock::~AudioToMidiBlock()
@@ -254,4 +257,4 @@ void AudioToMidiBlock::setNotes(QByteArray notes)
 }
 
 //Q_PLUGIN_METADATA(audiotomidiblockplugin, AudioToMidiBlock)
-Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QAudioToMidiBlock" FILE "audiotomidiblock.json")
+
