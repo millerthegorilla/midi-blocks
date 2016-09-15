@@ -18,7 +18,7 @@ TARGET        = $$qtLibraryTarget(audiotomidiblockplugin)
 PLUGIN_PATH = "usr/local/share/MidiBlocks/plugins"
 
 CONFIG(debug, debug|release) {
-     INSTALL_PATH = $$top_builddir/$$PLUGIN_PATH
+     INSTALL_PATH = $$$$shadowed($$PWD)/$$PLUGIN_PATH
      !exists($$INSTALL_PATH) { system( mkdir -p $$INSTALL_PATH ) }
 }
 
@@ -54,4 +54,4 @@ HEADERS += $$PWD/../../CLAM-1.4.0/scons/libs/audioio/include/CLAM/*.hxx
 #SOURCES += $$PWD/../CLAM-1.4.0/scons/libs/audioio/src/*.cxx
 
 DISTFILES += \
-    ../MidiBlockPlugins.includes
+    ./audiotomidiblock.includes

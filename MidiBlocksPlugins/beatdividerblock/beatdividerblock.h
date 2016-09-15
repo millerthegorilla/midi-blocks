@@ -28,7 +28,7 @@ class BeatDividerBlockEditor;
 
 class BeatDividerBlock : public iControlBlock
 {
-    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.BeatDividerBlock")
+    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.BeatDividerBlock")
     Q_INTERFACES(iControlBlock)
 
 public:

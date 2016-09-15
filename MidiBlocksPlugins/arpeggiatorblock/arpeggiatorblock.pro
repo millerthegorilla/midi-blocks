@@ -11,7 +11,7 @@ TARGET        = $$qtLibraryTarget(arpeggiatorblockplugin)
 PLUGIN_PATH = "usr/local/share/MidiBlocks/plugins"
 
 CONFIG(debug, debug|release) {
-     INSTALL_PATH = $$top_builddir/$$PLUGIN_PATH
+     INSTALL_PATH = $$$$shadowed($$PWD)/$$PLUGIN_PATH
      !exists($$INSTALL_PATH) { system( mkdir -p $$INSTALL_PATH ) }
 }
 
@@ -20,4 +20,4 @@ target.path = $$INSTALL_PATH
 INSTALLS += target
 
 DISTFILES += \
-    ../MidiBlockPlugins.includes
+    ./arpeggiatorblock.includes

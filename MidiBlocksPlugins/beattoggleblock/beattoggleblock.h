@@ -28,9 +28,8 @@ class BeatToggleBlockEditor;
 
 class BeatToggleBlock : public iControlBlock
 {
-    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.BeatToggleBlock")
     Q_INTERFACES(iControlBlock)
-    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.BeatToggleBlock")
 
 public:
     explicit BeatToggleBlock(QObject* parent = 0);
@@ -40,7 +39,7 @@ public:
     QString getGroupName();
     
     QWidget* getEditorWidget();
-    ControlBlock* createDefaultBlock();
+    iControlBlock* createDefaultBlock();
     
 signals:
     //Prefix visible outputs with "send"
