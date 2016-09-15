@@ -1,5 +1,5 @@
 QMAKE_CXX = ccache g++
-
+QT += widgets
 TEMPLATE      = lib
 CONFIG        += plugin
 HEADERS       = chordblock.h \

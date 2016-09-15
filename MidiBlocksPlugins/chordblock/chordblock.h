@@ -28,9 +28,8 @@ class ChordBlockEditor;
 
 class ChordBlock : public iControlBlock
 {
-    Q_OBJECT
-    Q_INTERFACES(iControlBlock)
     Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.ChordBlock")
+    Q_INTERFACES(iControlBlock)
     
 public:
     explicit ChordBlock(QObject* parent = 0);
@@ -40,7 +39,7 @@ public:
     QString getGroupName();
     
     QWidget* getEditorWidget();
-    ControlBlock* createDefaultBlock();
+    iControlBlock* createDefaultBlock();
     
 signals:
     //Prefix visible outputs with "send"
@@ -50,7 +49,7 @@ public slots:
     //Prefix visible inputs with "receive"
     //void receiveTonic(QByteArray message);
     //void receiveScale_Degree(QByteArray message);
-    //void receiveTrigger(QByteArray message);
+    //void receiveTchordblockrigger(QByteArray message);
     
 private:
     Ui::ChordBlockEditor* editorUi;

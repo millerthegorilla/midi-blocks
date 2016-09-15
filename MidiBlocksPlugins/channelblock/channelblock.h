@@ -26,11 +26,10 @@ namespace Ui {
 class ChannelBlockEditor;
 }
 
-class ChannelBlock : public ControlBlock
+class ChannelBlock : public iControlBlock
 {
-    Q_OBJECT
-    Q_INTERFACES(ControlBlock)
     Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.ChannelBlock")
+    Q_INTERFACES(ControlBlock)
 
 public:
     explicit ChannelBlock(QObject* parent = 0);
@@ -40,7 +39,7 @@ public:
     QString getGroupName();
     
     QWidget* getEditorWidget();
-    ControlBlock* createDefaultBlock();
+    iControlBlock* createDefaultBlock();
     
 signals:
     //Prefix visible outputs with "send"

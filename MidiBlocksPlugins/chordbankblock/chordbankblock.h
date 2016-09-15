@@ -30,9 +30,8 @@ class ChordBankBlockEditor;
 
 class ChordBankBlock : public iControlBlock
 {
-    Q_OBJECT
-    Q_INTERFACES(iControlBlock)
     Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.ChordBankBlock")
+    Q_INTERFACES(iControlBlock)
 
 public:
     explicit ChordBankBlock(QObject* parent = 0);
