@@ -32,9 +32,8 @@ class AudioToMidiBlockEditor;
 
 class AudioToMidiBlock : public iControlBlock
 {
-    Q_OBJECT
-    Q_INTERFACES(iControlBlock)
     Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.AudioToMidiBlock")
+    Q_INTERFACES(iControlBlock)
 
 public:
     explicit AudioToMidiBlock(QObject* parent = 0);
@@ -44,7 +43,7 @@ public:
     QString getGroupName();
     
     QWidget* getEditorWidget();
-    ControlBlock* createDefaultBlock();
+    iControlBlock* createDefaultBlock();
     
 signals:
     //Prefix visible outputs with "send"

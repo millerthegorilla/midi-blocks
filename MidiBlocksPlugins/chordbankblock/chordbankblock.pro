@@ -19,7 +19,7 @@ TARGET        = $$qtLibraryTarget(chordbankblockplugin)
 PLUGIN_PATH = "usr/local/share/MidiBlocks/plugins"
 
 CONFIG(debug, debug|release) {
-     INSTALL_PATH = $$$$shadowed($$PWD)/$$PLUGIN_PATH
+     INSTALL_PATH = $$shadowed($$PWD)/../../$$PLUGIN_PATH
      !exists($$PLUGIN_PATH) { system( mkdir -p $$PLUGIN_PATH ) }
 }
 

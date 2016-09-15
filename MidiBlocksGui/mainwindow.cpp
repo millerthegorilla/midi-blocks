@@ -19,7 +19,7 @@
 #include "ui_mainwindow.h"
 #include "mainwindow.h"
 #include <QtWidgets/QGraphicsView>
-#include "controlblock.h"
+#include "../MidiBlocksPlugins/interfacedef/controlblockinterface.h"
 #include <QDebug>
 
 #include <QPluginLoader>
@@ -79,7 +79,7 @@ void MainWindow::loadPlugins()
 
 void MainWindow::addPlugin(QObject* plugin, QString filePath)
 {
-    ControlBlock *block = qobject_cast<ControlBlock*>(plugin);
+    iControlBlock *block = qobject_cast<iControlBlock*>(plugin);
     if (block)
     {
         m_pluginModel.addPlugin(block->getName(), filePath);

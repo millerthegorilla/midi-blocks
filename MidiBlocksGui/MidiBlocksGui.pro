@@ -19,7 +19,7 @@ SOURCES += main.cpp\
     pluginlistmodel.cpp
 
 HEADERS  += mainwindow.h \
-    controlblock.h \
+    ../MidiBlocksPlugins/interfacedef/controlblockinterface.h \
     controlblockgraphicsitem.h \
     connection.h \
     controlgraphicsscene.h \
@@ -30,11 +30,10 @@ FORMS    += mainwindow.ui
 INSTALL_PATH = "usr/local/bin"
 PLUGIN_PATH = "usr/local/share/MidiBlocks/plugins"
 
-message($$shadowed($$PWD))
 
 CONFIG(debug, debug|release) {
-     INSTALL_PATH = $$$$shadowed($$PWD)/$$INSTALL_PATH
-     PLUGIN_PATH = $$$$shadowed($$PWD)/$$PLUGIN_PATH
+     INSTALL_PATH = $$shadowed($$PWD)/../$$INSTALL_PATH
+     PLUGIN_PATH = $$shadowed($$PWD)/../$$PLUGIN_PATH
      !exists($$INSTALL_PATH) { system( mkdir -p $$INSTALL_PATH ) }
      !exists($$PLUGIN_PATH) { system( mkdir -p $$PLUGIN_PATH ) }
 }
@@ -46,4 +45,5 @@ target.path = $$INSTALL_PATH
 
 INSTALLS += target
 
-
+DISTFILES += \
+    ./midiblocksgui.includes

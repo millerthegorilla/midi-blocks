@@ -177,7 +177,7 @@ QRectF ControlBlockGraphicsItem::boundingRect() const
     return QRectF(0, 0, m_blockWidth, m_blockHeight);
 }
 
-void ControlBlockGraphicsItem::setControlBlock(ControlBlock* block)
+void ControlBlockGraphicsItem::setControlBlock(iControlBlock *block)
 {
     m_block = block;
     m_proxyWidget->setWidget(block->getEditorWidget());

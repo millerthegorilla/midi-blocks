@@ -20,7 +20,7 @@
 #define CONTROLBLOCKGRAPHICSITEM_H
 
 #include <QtWidgets/QGraphicsObject>
-#include "controlblock.h"
+#include "../MidiBlocksPlugins/interfacedef/controlblockinterface.h"
 #include <QtWidgets/QGraphicsProxyWidget>
 
 
@@ -45,7 +45,7 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     QRectF boundingRect() const;
 
-    void setControlBlock(ControlBlock* block);
+    void setControlBlock(iControlBlock* block);
 
     int inputAtPos(QPointF pos);
     int outputAtPos(QPointF pos);
@@ -54,7 +54,7 @@ public:
     void clearHighlights();
 
     QRectF getConnectionRect(int methodIndex) const;
-    ControlBlock* getControlBlock() {return m_block;}
+    iControlBlock* getControlBlock() {return m_block;}
 
 signals:
     void destroyConnections();
@@ -63,7 +63,7 @@ public slots:
 
 
 private:
-    ControlBlock* m_block;
+    iControlBlock* m_block;
     QGraphicsProxyWidget* m_proxyWidget;
 
     QList<QString> m_inputs;

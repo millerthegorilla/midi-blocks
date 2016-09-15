@@ -29,9 +29,8 @@ class TransposeBlockEditor;
 
 class TransposeBlock : public iControlBlock
 {
-    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.TransposeBlock")
     Q_INTERFACES(iControlBlock)
-    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.TransposeBlock")
 
 public:
     explicit TransposeBlock(QObject* parent = 0);

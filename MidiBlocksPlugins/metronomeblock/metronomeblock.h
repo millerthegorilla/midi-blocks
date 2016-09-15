@@ -29,9 +29,8 @@ class MetronomeBlockEditor;
 
 class MetronomeBlock : public iControlBlock
 {
-    Q_OBJECT
-    Q_INTERFACES(iControlBlock)
     Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.MetronomeBlock")
+    Q_INTERFACES(iControlBlock)
 
 public:
     explicit MetronomeBlock(QObject* parent = 0);

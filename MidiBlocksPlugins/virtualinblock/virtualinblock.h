@@ -29,9 +29,8 @@ class VirtualInBlockEditor;
 
 class VirtualInBlock : public iControlBlock
 {
-    Q_OBJECT
-    Q_INTERFACES(iControlBlock)
     Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.ChordBlock")
+    Q_INTERFACES(iControlBlock)
 
 public:
     explicit VirtualInBlock(QObject* parent = 0);

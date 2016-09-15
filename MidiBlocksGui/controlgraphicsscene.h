@@ -21,7 +21,7 @@
 
 #include <QtWidgets/QGraphicsScene>
 #include <QtWidgets/QGraphicsSceneDragDropEvent>
-#include "controlblock.h"
+#include "../MidiBlocksPlugins/interfacedef/controlblockinterface.h"
 #include "controlblockgraphicsitem.h"
 
 /*!
@@ -53,7 +53,7 @@ public:
 
     void keyPressEvent(QKeyEvent *event);
 
-    void addControlBlock(ControlBlock* block, QPointF pos);
+    void addControlBlock(iControlBlock* block, QPointF pos);
     void removeSelectedControlBlock();
     
 signals:

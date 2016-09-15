@@ -28,9 +28,8 @@ class SplitterBlockEditor;
 
 class SplitterBlock : public iControlBlock
 {
-    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.SplitterBlock")
     Q_INTERFACES(iControlBlock)
-    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.SplitterBlock")
 
 public:
     explicit SplitterBlock(QObject* parent = 0);

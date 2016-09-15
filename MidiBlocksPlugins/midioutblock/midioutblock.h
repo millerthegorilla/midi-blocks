@@ -30,9 +30,8 @@ class MidiOutBlockEditor;
 
 class MidiOutBlock : public iControlBlock
 {
-    Q_OBJECT
-    Q_INTERFACES(iControlBlock)
     Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.MidiOutBlock")
+    Q_INTERFACES(iControlBlock)
 
 public:
     explicit MidiOutBlock(QObject* parent = 0);

@@ -46,7 +46,7 @@ ControlGraphicsScene::~ControlGraphicsScene()
     m_items.clear();
 }
 
-void ControlGraphicsScene::addControlBlock(ControlBlock* block, QPointF pos)
+void ControlGraphicsScene::addControlBlock(iControlBlock *block, QPointF pos)
 {
     ControlBlockGraphicsItem* item = new ControlBlockGraphicsItem();
     item->setControlBlock(block);
@@ -279,7 +279,7 @@ void ControlGraphicsScene::dropEvent(QGraphicsSceneDragDropEvent *event)
     {
         foreach (QObject *plugin, QPluginLoader::staticInstances())
         {
-            ControlBlock *block = qobject_cast<ControlBlock*>(plugin);
+            iControlBlock *block = qobject_cast<iControlBlock*>(plugin);
             if (block)
             {
                 if (block->getName() == event->mimeData()->text())
@@ -297,7 +297,7 @@ void ControlGraphicsScene::dropEvent(QGraphicsSceneDragDropEvent *event)
         QObject *plugin = loader.instance();
         if (plugin)
         {
-            ControlBlock *block = qobject_cast<ControlBlock*>(plugin);
+            iControlBlock *block = qobject_cast<iControlBlock*>(plugin);
             if (block)
             {
                 addControlBlock(block->createDefaultBlock(), event->scenePos());

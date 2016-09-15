@@ -31,7 +31,7 @@
 */
 class PluginListModel : public QAbstractListModel
 {
-    Q_OBJECT
+
 public:
     explicit PluginListModel(QObject *parent = 0);
 

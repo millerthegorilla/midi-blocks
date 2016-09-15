@@ -18,10 +18,10 @@ TARGET        = $$qtLibraryTarget(audiotomidiblockplugin)
 PLUGIN_PATH = "usr/local/share/MidiBlocks/plugins"
 
 CONFIG(debug, debug|release) {
-     INSTALL_PATH = $$$$shadowed($$PWD)/$$PLUGIN_PATH
+     INSTALL_PATH = $$shadowed($$PWD)../../$$PLUGIN_PATH
      !exists($$INSTALL_PATH) { system( mkdir -p $$INSTALL_PATH ) }
 }
-message($$system(ls $$PWD/../../))
+
 target.path = $$INSTALL_PATH
 
 INSTALLS += target
