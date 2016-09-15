@@ -19,18 +19,18 @@
 #ifndef BEATDIVIDERBLOCK_H
 #define BEATDIVIDERBLOCK_H
 
-#include "controlblock.h"
+#include "../interfacedef/controlblockinterface.h"
 #include <QtWidgets/QWidget>
 
 namespace Ui {
 class BeatDividerBlockEditor;
 }
 
-class BeatDividerBlock : public ControlBlock
+class BeatDividerBlock : public iControlBlock
 {
-    Q_OBJECT
-    Q_INTERFACES(ControlBlock)
-    
+    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.BeatDividerBlock")
+    Q_INTERFACES(iControlBlock)
+
 public:
     explicit BeatDividerBlock(QObject* parent = 0);
     ~BeatDividerBlock();
@@ -39,7 +39,7 @@ public:
     QString getGroupName();
     
     QWidget* getEditorWidget();
-    ControlBlock* createDefaultBlock();
+    iControlBlock* createDefaultBlock();
     
 signals:
     //Prefix visible outputs with "send"

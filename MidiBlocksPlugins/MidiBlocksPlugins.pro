@@ -1,8 +1,8 @@
-
+QMAKE_CXX = ccache g++
 
 TEMPLATE = subdirs
 
-SUBDIRS = \
+SUBDIRS =  \
         arpeggiatorblock\
         beatdividerblock\
         beattoggleblock\

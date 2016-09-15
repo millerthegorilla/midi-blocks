@@ -3,6 +3,7 @@
 # Project created by QtCreator 2013-06-30T13:06:23
 #
 #-------------------------------------------------
+QMAKE_CXX = ccache g++
 
 QT       += core gui widgets
 
@@ -42,3 +43,5 @@ DEFINES += "PLUG_PATH=\\\"$$PLUGIN_PATH\\\""
 target.path = $$INSTALL_PATH
 
 INSTALLS += target
+
+

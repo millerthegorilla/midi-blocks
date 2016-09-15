@@ -31,8 +31,6 @@ BeatToggleBlock::BeatToggleBlock(QObject *parent) :
     editorUi->setupUi(editor);
 
     m_first = true;
-
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QBeatToggleBlock")
 }
 
 BeatToggleBlock::~BeatToggleBlock()
@@ -56,7 +54,7 @@ QWidget* BeatToggleBlock::getEditorWidget()
     return editor;
 }
 
-ControlBlock* BeatToggleBlock::createDefaultBlock()
+iControlBlock* BeatToggleBlock::createDefaultBlock()
 {
     return new BeatToggleBlock();
 }
@@ -74,5 +72,3 @@ void BeatToggleBlock::receiveBeat(QByteArray message)
         m_first = true;
     }
 }
-
-//Q_PLUGIN_METADATA(beattoggleblockplugin, BeatToggleBlock)

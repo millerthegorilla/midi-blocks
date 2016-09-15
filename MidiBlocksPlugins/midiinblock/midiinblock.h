@@ -19,7 +19,7 @@
 #ifndef MIDIINBLOCK_H
 #define MIDIINBLOCK_H
 
-#include "controlblock.h"
+#include "../interfacedef/controlblockinterface.h"
 #include <QtWidgets/QWidget>
 #include "RtMidi.h"
 #include <QTimer>
@@ -28,11 +28,12 @@ namespace Ui {
 class MidiInBlockEditor;
 }
 
-class MidiInBlock : public ControlBlock
+class MidiInBlock : public iControlBlock
 {
     Q_OBJECT
-    Q_INTERFACES(ControlBlock)
-    
+    Q_INTERFACES(iControlBlock)
+    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.MidiInBlock")
+
 public:
     explicit MidiInBlock(QObject* parent = 0);
     ~MidiInBlock();
@@ -41,7 +42,7 @@ public:
     QString getGroupName();
     
     QWidget* getEditorWidget();
-    ControlBlock* createDefaultBlock() {return new MidiInBlock();}
+    iControlBlock* createDefaultBlock() {return new MidiInBlock();}
 
     static void inputCallback( double deltatime, std::vector< unsigned char > *message, void *userData );
     void input(double deltatime, std::vector< unsigned char > *message);

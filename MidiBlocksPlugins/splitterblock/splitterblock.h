@@ -19,18 +19,19 @@
 #ifndef SPLITTERBLOCK_H
 #define SPLITTERBLOCK_H
 
-#include "controlblock.h"
+#include "../interfacedef/controlblockinterface.h"
 #include <QtWidgets/QWidget>
 
 namespace Ui {
 class SplitterBlockEditor;
 }
 
-class SplitterBlock : public ControlBlock
+class SplitterBlock : public iControlBlock
 {
     Q_OBJECT
-    Q_INTERFACES(ControlBlock)
-    
+    Q_INTERFACES(iControlBlock)
+    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.SplitterBlock")
+
 public:
     explicit SplitterBlock(QObject* parent = 0);
     ~SplitterBlock();
@@ -39,7 +40,7 @@ public:
     QString getGroupName();
     
     QWidget* getEditorWidget();
-    ControlBlock* createDefaultBlock() {return new SplitterBlock();}
+    iControlBlock* createDefaultBlock() {return new SplitterBlock();}
     
 signals:
     //Prefix visible outputs with "send"

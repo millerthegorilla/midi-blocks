@@ -178,7 +178,7 @@ QWidget* AudioToMidiBlock::getEditorWidget()
     return editor;
 }
 
-ControlBlock* AudioToMidiBlock::createDefaultBlock()
+iControlBlock* AudioToMidiBlock::createDefaultBlock()
 {
     return new AudioToMidiBlock();
 }
@@ -255,6 +255,3 @@ void AudioToMidiBlock::setNotes(QByteArray notes)
 
     editorUi->le_notes->setText(noteList);
 }
-
-//Q_PLUGIN_METADATA(audiotomidiblockplugin, AudioToMidiBlock)
-

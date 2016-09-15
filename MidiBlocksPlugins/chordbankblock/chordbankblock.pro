@@ -1,14 +1,17 @@
+QMAKE_CXX = ccache g++
+
 QT            += widgets
 TEMPLATE      = lib
 CONFIG        += plugin
-HEADERS       = chordbankblock.h controlblock.h \
-    chordbankmodel.h \
-    chorditemdelegate.h \
-    chordeditor.h
+HEADERS       = chordbankblock.h \
+                ../interfacedef/controlblockinterface.h \
+                chordbankmodel.h \
+                chorditemdelegate.h \
+                chordeditor.h
 SOURCES       = chordbankblock.cpp \
-    chordbankmodel.cpp \
-    chorditemdelegate.cpp \
-    chordeditor.cpp
+                chordbankmodel.cpp \
+                chorditemdelegate.cpp \
+                chordeditor.cpp
 FORMS         = chordbankblockeditor.ui \
     chordeditor.ui
 TARGET        = $$qtLibraryTarget(chordbankblockplugin)
@@ -24,3 +27,5 @@ target.path = $$INSTALL_PATH
 
 INSTALLS += target
 
+DISTFILES += \
+    ../MidiBlockPlugins.includes

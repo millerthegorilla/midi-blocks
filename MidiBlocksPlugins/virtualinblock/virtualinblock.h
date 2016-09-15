@@ -20,18 +20,19 @@
 #define VIRTUALINBLOCK_H
 
 #include "RtMidi.h"
-#include "controlblock.h"
+#include "../interfacedef/controlblockinterface.h"
 #include <QtWidgets/QWidget>
 
 namespace Ui {
 class VirtualInBlockEditor;
 }
 
-class VirtualInBlock : public ControlBlock
+class VirtualInBlock : public iControlBlock
 {
     Q_OBJECT
-    Q_INTERFACES(ControlBlock)
-    
+    Q_INTERFACES(iControlBlock)
+    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.ChordBlock")
+
 public:
     explicit VirtualInBlock(QObject* parent = 0);
     ~VirtualInBlock();
@@ -40,7 +41,7 @@ public:
     QString getGroupName();
     
     QWidget* getEditorWidget();
-    ControlBlock* createDefaultBlock();
+    iControlBlock* createDefaultBlock();
     
 signals:
     //Prefix visible outputs with "send"

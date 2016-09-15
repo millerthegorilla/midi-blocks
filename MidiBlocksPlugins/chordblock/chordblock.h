@@ -19,17 +19,18 @@
 #ifndef CHORDBLOCK_H
 #define CHORDBLOCK_H
 
-#include "controlblock.h"
+#include "../interfacedef/controlblockinterface.h"
 #include <QtWidgets/QWidget>
 
 namespace Ui {
 class ChordBlockEditor;
 }
 
-class ChordBlock : public ControlBlock
+class ChordBlock : public iControlBlock
 {
     Q_OBJECT
-    Q_INTERFACES(ControlBlock)
+    Q_INTERFACES(iControlBlock)
+    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.ChordBlock")
     
 public:
     explicit ChordBlock(QObject* parent = 0);

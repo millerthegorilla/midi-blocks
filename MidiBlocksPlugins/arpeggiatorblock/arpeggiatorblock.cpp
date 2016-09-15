@@ -35,7 +35,6 @@ ArpeggiatorBlock::ArpeggiatorBlock(QObject *parent) :
     editorUi->cb_mode->addItem("Descending");
 
     m_currentIndex = 0;
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QArpeggiatorBlock")
 }
 
 ArpeggiatorBlock::~ArpeggiatorBlock()
@@ -59,7 +58,7 @@ QWidget* ArpeggiatorBlock::getEditorWidget()
     return editor;
 }
 
-ControlBlock* ArpeggiatorBlock::createDefaultBlock()
+iControlBlock *ArpeggiatorBlock::createDefaultBlock()
 {
     return new ArpeggiatorBlock();
 }
@@ -165,6 +164,3 @@ void ArpeggiatorBlock::receiveNote_Off(QByteArray message)
         m_currentNote.clear();
     }
 }
-
-//Q_PLUGIN_METADATA(arpeggiatorblockplugin, ArpeggiatorBlock)
-

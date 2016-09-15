@@ -31,8 +31,6 @@ BeatDividerBlock::BeatDividerBlock(QObject *parent) :
     editorUi->setupUi(editor);
 
     m_beats = 0;
-
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QBeatDividerBlock")
 }
 
 BeatDividerBlock::~BeatDividerBlock()
@@ -56,7 +54,7 @@ QWidget* BeatDividerBlock::getEditorWidget()
     return editor;
 }
 
-ControlBlock* BeatDividerBlock::createDefaultBlock()
+iControlBlock* BeatDividerBlock::createDefaultBlock()
 {
     return new BeatDividerBlock();
 }
@@ -73,5 +71,3 @@ void BeatDividerBlock::receiveBeat(QByteArray message)
         emit sendBeat(QByteArray());
     }
 }
-
-//Q_PLUGIN_METADATA(beatdividerblockplugin, BeatDividerBlock)

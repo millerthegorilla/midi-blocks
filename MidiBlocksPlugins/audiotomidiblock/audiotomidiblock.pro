@@ -1,3 +1,5 @@
+QMAKE_CXX = ccache g++
+
 QT += widgets
 
 #this currently only works in linux with JACK
@@ -5,10 +7,11 @@ QT += widgets
 TEMPLATE      = lib
 CONFIG        += plugin
 
-HEADERS       = audiotomidiblock.h controlblock.h \
-    chordprocessing.h
+HEADERS       = audiotomidiblock.h \
+                ../interfacedef/controlblockinterface.h \
+                chordprocessing.h
 SOURCES       = audiotomidiblock.cpp \
-    chordprocessing.cpp
+                chordprocessing.cpp
 FORMS         = audiotomidiblockeditor.ui
 TARGET        = $$qtLibraryTarget(audiotomidiblockplugin)
 
@@ -16,7 +19,7 @@ PLUGIN_PATH = "usr/local/share/MidiBlocks/plugins"
 
 CONFIG(debug, debug|release) {
      INSTALL_PATH = $$top_builddir/$$PLUGIN_PATH
-     !exists($$PLUGIN_PATH) { system( mkdir -p $$PLUGIN_PATH ) }
+     !exists($$INSTALL_PATH) { system( mkdir -p $$INSTALL_PATH ) }
 }
 
 target.path = $$INSTALL_PATH
@@ -50,3 +53,5 @@ DEPENDPATH += $$PWD/../../CLAM-1.4.0/scons/libs/audioio
 HEADERS += $$PWD/../../CLAM-1.4.0/scons/libs/audioio/include/CLAM/*.hxx
 #SOURCES += $$PWD/../CLAM-1.4.0/scons/libs/audioio/src/*.cxx
 
+DISTFILES += \
+    ../MidiBlockPlugins.includes

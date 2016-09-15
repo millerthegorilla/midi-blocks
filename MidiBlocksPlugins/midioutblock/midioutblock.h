@@ -20,7 +20,7 @@
 #define MIDIOUTBLOCK_H
 
 #include "RtMidi.h"
-#include "controlblock.h"
+#include "../interfacedef/controlblockinterface.h"
 #include <QtWidgets/QWidget>
 #include <QList>
 
@@ -28,11 +28,12 @@ namespace Ui {
 class MidiOutBlockEditor;
 }
 
-class MidiOutBlock : public ControlBlock
+class MidiOutBlock : public iControlBlock
 {
     Q_OBJECT
-    Q_INTERFACES(ControlBlock)
-    
+    Q_INTERFACES(iControlBlock)
+    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.MidiOutBlock")
+
 public:
     explicit MidiOutBlock(QObject* parent = 0);
     ~MidiOutBlock();
@@ -41,7 +42,7 @@ public:
     QString getGroupName();
     
     QWidget* getEditorWidget();
-    ControlBlock* createDefaultBlock() {return new MidiOutBlock();}
+    iControlBlock* createDefaultBlock() {return new MidiOutBlock();}
     
 signals:
     //Prefix visible outputs with "send"

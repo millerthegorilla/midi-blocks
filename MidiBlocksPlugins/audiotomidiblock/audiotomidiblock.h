@@ -19,7 +19,7 @@
 #ifndef AUDIOTOMIDIBLOCK_H
 #define AUDIOTOMIDIBLOCK_H
 
-#include "controlblock.h"
+#include <../interfacedef/controlblockinterface.h>
 #include <QtWidgets/QWidget>
 #include <QMap>
 
@@ -30,11 +30,12 @@ namespace Ui {
 class AudioToMidiBlockEditor;
 }
 
-class AudioToMidiBlock : public ControlBlock
+class AudioToMidiBlock : public iControlBlock
 {
     Q_OBJECT
-    Q_INTERFACES(ControlBlock)
-    
+    Q_INTERFACES(iControlBlock)
+    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.AudioToMidiBlock")
+
 public:
     explicit AudioToMidiBlock(QObject* parent = 0);
     ~AudioToMidiBlock();

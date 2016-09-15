@@ -23,22 +23,23 @@
 #include <QString>
 #include <QtWidgets/QWidget>
 
-class ControlBlock : public QObject
+class iControlBlock : public QObject
 {
+    Q_OBJECT
+
 public:
-    virtual ~ControlBlock() {}
+    virtual ~iControlBlock() {}
     
     virtual QString getName()=0;
     virtual QString getGroupName()=0;
     virtual QWidget* getEditorWidget()=0;
-    virtual ControlBlock* createDefaultBlock()=0;
+    virtual iControlBlock* createDefaultBlock()=0;
     
 protected:
     
 };
 
-Q_DECLARE_INTERFACE(ControlBlock,
-                    "org.midiblocks.ControlBlock/1.0")
+
 
 #endif // CONTROLBLOCK_H
 

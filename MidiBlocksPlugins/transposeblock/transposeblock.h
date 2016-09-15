@@ -19,7 +19,7 @@
 #ifndef TRANSPOSEBLOCK_H
 #define TRANSPOSEBLOCK_H
 
-#include "controlblock.h"
+#include "../interfacedef/controlblockinterface.h"
 #include <QtWidgets/QWidget>
 #include <QSet>
 
@@ -27,11 +27,12 @@ namespace Ui {
 class TransposeBlockEditor;
 }
 
-class TransposeBlock : public ControlBlock
+class TransposeBlock : public iControlBlock
 {
     Q_OBJECT
-    Q_INTERFACES(ControlBlock)
-    
+    Q_INTERFACES(iControlBlock)
+    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.TransposeBlock")
+
 public:
     explicit TransposeBlock(QObject* parent = 0);
     ~TransposeBlock();
@@ -40,7 +41,7 @@ public:
     QString getGroupName();
     
     QWidget* getEditorWidget();
-    ControlBlock* createDefaultBlock() {return new TransposeBlock();}
+    iControlBlock* createDefaultBlock() {return new TransposeBlock();}
     
 signals:
     //Prefix visible outputs with "send"

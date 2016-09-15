@@ -29,9 +29,6 @@ ChordBlock::ChordBlock(QObject *parent) :
     
     editor = new QWidget();
     editorUi->setupUi(editor);
-
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QChordBlock")
-
 }
 
 ChordBlock::~ChordBlock()
@@ -55,9 +52,7 @@ QWidget* ChordBlock::getEditorWidget()
     return editor;
 }
 
-ControlBlock* ChordBlock::createDefaultBlock()
+iControlBlock* ChordBlock::createDefaultBlock()
 {
     return new ChordBlock();
 }
-
-//Q_PLUGIN_METADATA(chordblockplugin, ChordBlock)

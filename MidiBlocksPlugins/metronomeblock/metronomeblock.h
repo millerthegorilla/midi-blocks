@@ -19,7 +19,7 @@
 #ifndef METRONOMEBLOCK_H
 #define METRONOMEBLOCK_H
 
-#include "controlblock.h"
+#include "../interfacedef/controlblockinterface.h"
 #include <QtWidgets/QWidget>
 #include <QTimer>
 
@@ -27,11 +27,12 @@ namespace Ui {
 class MetronomeBlockEditor;
 }
 
-class MetronomeBlock : public ControlBlock
+class MetronomeBlock : public iControlBlock
 {
     Q_OBJECT
-    Q_INTERFACES(ControlBlock)
-    
+    Q_INTERFACES(iControlBlock)
+    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.MetronomeBlock")
+
 public:
     explicit MetronomeBlock(QObject* parent = 0);
     ~MetronomeBlock();
@@ -40,7 +41,7 @@ public:
     QString getGroupName();
     
     QWidget* getEditorWidget();
-    ControlBlock* createDefaultBlock() {return new MetronomeBlock();}
+    iControlBlock* createDefaultBlock();
     
 signals:
     //Prefix visible outputs with "send"

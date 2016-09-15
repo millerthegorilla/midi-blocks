@@ -29,8 +29,6 @@ SplitterBlock::SplitterBlock(QObject *parent) :
     
     editor = new QWidget();
     editorUi->setupUi(editor);
-
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QSplitterBlock")
 }
 
 SplitterBlock::~SplitterBlock()
@@ -74,5 +72,3 @@ void SplitterBlock::receiveInput(QByteArray message)
         }
     }
 }
-
-//Q_PLUGIN_METADATA(splitterblockplugin, SplitterBlock)

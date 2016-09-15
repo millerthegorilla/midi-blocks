@@ -40,8 +40,6 @@ VirtualInBlock::VirtualInBlock(QObject *parent) :
     {
         m_virtualIn = 0;
     }
-
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QVirtualInBlock")
 }
 
 VirtualInBlock::~VirtualInBlock()
@@ -70,7 +68,7 @@ QWidget* VirtualInBlock::getEditorWidget()
     return editor;
 }
 
-ControlBlock* VirtualInBlock::createDefaultBlock()
+iControlBlock* VirtualInBlock::createDefaultBlock()
 {
     return new VirtualInBlock();
 }

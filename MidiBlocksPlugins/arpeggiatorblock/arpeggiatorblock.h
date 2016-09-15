@@ -19,18 +19,18 @@
 #ifndef ARPEGGIATORBLOCK_H
 #define ARPEGGIATORBLOCK_H
 
-#include "controlblock.h"
+#include <../interfacedef/controlblockinterface.h>
 #include <QtWidgets/QWidget>
 
 namespace Ui {
 class ArpeggiatorBlockEditor;
 }
 
-class ArpeggiatorBlock : public ControlBlock
+class ArpeggiatorBlock : public iControlBlock
 {
-    Q_OBJECT
-    Q_INTERFACES(ControlBlock)
-    
+    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.ArpeggiatorBlock")
+    Q_INTERFACES(iControlBlock)
+
 public:
     explicit ArpeggiatorBlock(QObject* parent = 0);
     ~ArpeggiatorBlock();
@@ -39,7 +39,7 @@ public:
     QString getGroupName();
     
     QWidget* getEditorWidget();
-    ControlBlock* createDefaultBlock();
+    iControlBlock* createDefaultBlock();
     
 signals:
     //Prefix visible outputs with "send"

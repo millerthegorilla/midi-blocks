@@ -29,8 +29,6 @@ ChannelBlock::ChannelBlock(QObject *parent) :
     
     editor = new QWidget();
     editorUi->setupUi(editor);
-
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QChannelBlock" FILE "channelblock.json")
 }
 
 ChannelBlock::~ChannelBlock()
@@ -54,7 +52,7 @@ QWidget* ChannelBlock::getEditorWidget()
     return editor;
 }
 
-ControlBlock* ChannelBlock::createDefaultBlock()
+iControlBlock* ChannelBlock::createDefaultBlock()
 {
     return new ChannelBlock();
 }
@@ -77,6 +75,4 @@ void ChannelBlock::receiveInput(QByteArray message)
 
     emit sendOutput(message);
 }
-
-//Q_PLUGIN_METADATA(channelblockplugin, ChannelBlock)
 

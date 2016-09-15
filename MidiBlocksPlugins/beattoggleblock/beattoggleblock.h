@@ -19,18 +19,19 @@
 #ifndef BEATTOGGLEBLOCK_H
 #define BEATTOGGLEBLOCK_H
 
-#include "controlblock.h"
+#include "../interfacedef/controlblockinterface.h"
 #include <QtWidgets/QWidget>
 
 namespace Ui {
 class BeatToggleBlockEditor;
 }
 
-class BeatToggleBlock : public ControlBlock
+class BeatToggleBlock : public iControlBlock
 {
     Q_OBJECT
-    Q_INTERFACES(ControlBlock)
-    
+    Q_INTERFACES(iControlBlock)
+    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.BeatToggleBlock")
+
 public:
     explicit BeatToggleBlock(QObject* parent = 0);
     ~BeatToggleBlock();

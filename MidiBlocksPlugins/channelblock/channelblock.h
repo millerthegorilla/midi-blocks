@@ -19,7 +19,7 @@
 #ifndef CHANNELBLOCK_H
 #define CHANNELBLOCK_H
 
-#include "controlblock.h"
+#include "../interfacedef/controlblockinterface.h"
 #include <QtWidgets/QWidget>
 
 namespace Ui {
@@ -30,7 +30,8 @@ class ChannelBlock : public ControlBlock
 {
     Q_OBJECT
     Q_INTERFACES(ControlBlock)
-    
+    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.ChannelBlock")
+
 public:
     explicit ChannelBlock(QObject* parent = 0);
     ~ChannelBlock();

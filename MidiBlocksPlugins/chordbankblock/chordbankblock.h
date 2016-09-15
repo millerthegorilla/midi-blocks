@@ -19,7 +19,7 @@
 #ifndef CHORDBANKBLOCK_H
 #define CHORDBANKBLOCK_H
 
-#include "controlblock.h"
+#include "../interfacedef/controlblockinterface.h"
 #include <QtWidgets/QWidget>
 #include "chordbankmodel.h"
 #include "chordeditor.h"
@@ -28,11 +28,12 @@ namespace Ui {
 class ChordBankBlockEditor;
 }
 
-class ChordBankBlock : public ControlBlock
+class ChordBankBlock : public iControlBlock
 {
     Q_OBJECT
-    Q_INTERFACES(ControlBlock)
-    
+    Q_INTERFACES(iControlBlock)
+    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.ChordBankBlock")
+
 public:
     explicit ChordBankBlock(QObject* parent = 0);
     ~ChordBankBlock();
@@ -41,7 +42,7 @@ public:
     QString getGroupName();
     
     QWidget* getEditorWidget();
-    ControlBlock* createDefaultBlock();
+    iControlBlock *createDefaultBlock();
     
 signals:
     //Prefix visible outputs with "send"

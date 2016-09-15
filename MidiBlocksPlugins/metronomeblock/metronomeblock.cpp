@@ -39,8 +39,6 @@ MetronomeBlock::MetronomeBlock(QObject *parent) :
     m_timer.setInterval(60000.0/120.0);
 
     m_timer.start();
-
-    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QMetronomeBlock")
 }
 
 MetronomeBlock::~MetronomeBlock()
@@ -75,5 +73,7 @@ void MetronomeBlock::prepareBeat()
     emit sendBeat(QByteArray());
 }
 
-//Q_PLUGIN_METADATA(metronomeblockplugin, MetronomeBlock)
-
+iControlBlock* MetronomeBlock::createDefaultBlock()
+{
+    return new MetronomeBlock();
+}
