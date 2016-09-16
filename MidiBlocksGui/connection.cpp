@@ -88,7 +88,7 @@ bool Connection::createConnection(ControlBlockGraphicsItem* sender, int sendInde
     connect(m_receiver, SIGNAL(destroyed()),
             this, SLOT(forgetConnection()));
 
-    m_broken = !QMetaObject::connect(m_sender->getControlBlock(), m_sendIndex,
+    m_broken = connect(m_sender->getControlBlock(), m_sender->getm_sendIndex,
                                      m_receiver->getControlBlock(), m_receiveIndex);
 
     return !m_broken;

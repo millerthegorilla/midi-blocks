@@ -27,8 +27,9 @@ namespace Ui {
 class TransposeBlockEditor;
 }
 
-class TransposeBlock : public iControlBlock
+class TransposeBlock : public QObject, public iControlBlock
 {
+    Q_OBJECT
     Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.TransposeBlock")
     Q_INTERFACES(iControlBlock)
 

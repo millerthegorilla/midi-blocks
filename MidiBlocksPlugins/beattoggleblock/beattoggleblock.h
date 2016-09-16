@@ -26,9 +26,10 @@ namespace Ui {
 class BeatToggleBlockEditor;
 }
 
-class BeatToggleBlock : public iControlBlock
+class BeatToggleBlock : public QObject, public iControlBlock
 {
-    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.BeatToggleBlock")
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.iControlBlock")
     Q_INTERFACES(iControlBlock)
 
 public:

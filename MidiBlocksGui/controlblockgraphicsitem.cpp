@@ -22,7 +22,7 @@
 #include <QMetaMethod>
 #include <QtWidgets/QGraphicsSceneHoverEvent>
 #include <QDebug>
-
+#include <QObject>
 ControlBlockGraphicsItem::ControlBlockGraphicsItem(/*QGraphicsItem *parent*/) //:
     //QGraphicsObject (parent)
 {
@@ -160,7 +160,7 @@ void ControlBlockGraphicsItem::paint(QPainter *painter, const QStyleOptionGraphi
          QFont headerFont("Monospace", 10, QFont::Bold);
          painter->setFont(headerFont);
          painter->setPen(Qt::white);
-        painter->drawText(QRect(0, 0, m_blockWidth, headerHeight), m_block->getName(), titleOption);
+         painter->drawText(QRect(0, 0, m_blockWidth, headerHeight), m_block->getName(), titleOption);
     }
 
     if (this->hasFocus())
@@ -188,28 +188,27 @@ void ControlBlockGraphicsItem::setControlBlock(iControlBlock *block)
 
     //Get the inputs and outputs from the meta object
     const QMetaObject* metaObject = m_block->metaObject();
-    QMetaMethod method;
     for (int i = 0; i<metaObject->methodCount(); i++)
     {
-        method = metaObject->method(i);
+        QMetaMethod* method = metaObject->method(i);
         QString signature = metaObject->normalizedSignature(method.methodSignature());
-        if (method.methodType() == QMetaMethod::Signal && signature.startsWith("send"))
+        if (method->methodType() == QMetaMethod::Signal && signature.startsWith("send"))
         {
-            QString name = signature.mid(4, signature.indexOf('(')-4);
-            name.replace('_', " ");
-            name.append("->");
+//            QString name = signature.mid(4, signature.indexOf('(')-4);
+//            name.replace('_', " ");
+//            name.append("->");
 
-            m_methodIndices.insert(name, i);
+            m_methodIndices.insert(method, i);
 
             m_outputs << name;
         }
-        else if (method.methodType() == QMetaMethod::Slot && signature.startsWith("receive"))
+        else if (method->methodType() == QMetaMethod::Slot && signature.startsWith("receive"))
         {
-            QString name = signature.mid(7, signature.indexOf('(')-7);
-            name.replace('_', " ");
-            name.push_front("->");
+//            QString name = signature.mid(7, signature.indexOf('(')-7);
+//            name.replace('_', " ");
+//            name.push_front("->");
 
-            m_methodIndices.insert(name, i);
+            m_methodIndices.insert(method, i);
 
             m_inputs << name;
         }

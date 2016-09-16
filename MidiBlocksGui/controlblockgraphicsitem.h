@@ -53,6 +53,8 @@ public:
     void setHighlight(int index);
     void clearHighlights();
 
+    //quick hack to get it working
+
     QRectF getConnectionRect(int methodIndex) const;
     iControlBlock* getControlBlock() {return m_block;}
 
@@ -66,11 +68,22 @@ private:
     iControlBlock* m_block;
     QGraphicsProxyWidget* m_proxyWidget;
 
+    enum connectionType {
+        input = 0x01,
+        output = 0x02,
+    };
+
+    struct m_connectionInfo {
+        QString name;
+        QMetaMethod method;
+        int type;
+    };
+
     QList<QString> m_inputs;
     QList<QString> m_outputs;
 
     QHash<QString, QRect> m_inOutRects;
-    QHash<QString, int> m_methodIndices;
+    QHash<QMetaMethod, int> m_methodIndices;
 
     QString m_highlightedInOut;
 

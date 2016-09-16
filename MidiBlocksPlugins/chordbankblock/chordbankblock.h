@@ -28,9 +28,10 @@ namespace Ui {
 class ChordBankBlockEditor;
 }
 
-class ChordBankBlock : public iControlBlock
+class ChordBankBlock : public QObject, public iControlBlock
 {
-    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.ChordBankBlock")
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.iControlBlock")
     Q_INTERFACES(iControlBlock)
 
 public:

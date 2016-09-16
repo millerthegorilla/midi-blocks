@@ -30,9 +30,10 @@ namespace Ui {
 class AudioToMidiBlockEditor;
 }
 
-class AudioToMidiBlock : public iControlBlock
+class AudioToMidiBlock : public QObject, public iControlBlock
 {
-    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.AudioToMidiBlock")
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.iControlBlock")
     Q_INTERFACES(iControlBlock)
 
 public:

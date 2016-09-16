@@ -26,10 +26,11 @@ namespace Ui {
 class ChannelBlockEditor;
 }
 
-class ChannelBlock : public iControlBlock
+class ChannelBlock : public QObject, public iControlBlock
 {
-    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.ChannelBlock")
-    Q_INTERFACES(ControlBlock)
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.iControlBlock")
+    Q_INTERFACES(iControlBlock)
 
 public:
     explicit ChannelBlock(QObject* parent = 0);

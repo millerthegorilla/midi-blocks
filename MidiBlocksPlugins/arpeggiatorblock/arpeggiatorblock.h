@@ -21,14 +21,16 @@
 
 #include <../interfacedef/controlblockinterface.h>
 #include <QtWidgets/QWidget>
+#include <QObject>
 
 namespace Ui {
 class ArpeggiatorBlockEditor;
 }
 
-class ArpeggiatorBlock : public iControlBlock
+class ArpeggiatorBlock : public QObject, public iControlBlock
 {
-    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.ArpeggiatorBlock")
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.iControlBlock")
     Q_INTERFACES(iControlBlock)
 
 public:

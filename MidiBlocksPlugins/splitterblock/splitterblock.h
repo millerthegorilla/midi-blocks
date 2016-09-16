@@ -26,9 +26,10 @@ namespace Ui {
 class SplitterBlockEditor;
 }
 
-class SplitterBlock : public iControlBlock
+class SplitterBlock : public QObject, public iControlBlock
 {
-    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.SplitterBlock")
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.iControlBlock")
     Q_INTERFACES(iControlBlock)
 
 public:

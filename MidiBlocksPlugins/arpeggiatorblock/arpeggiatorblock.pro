@@ -2,7 +2,8 @@ QMAKE_CXX = ccache g++
 
 TEMPLATE      = lib
 CONFIG        += plugin
-HEADERS       = arpeggiatorblock.h ../interfacedef/controlblockinterface.h
+HEADERS       = arpeggiatorblock.h \
+                ../interfacedef/controlblockinterface.h
 SOURCES       = arpeggiatorblock.cpp
 FORMS         = arpeggiatorblockeditor.ui
 TARGET        = $$qtLibraryTarget(arpeggiatorblockplugin)

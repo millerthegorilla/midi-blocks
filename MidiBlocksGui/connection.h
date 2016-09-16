@@ -19,6 +19,7 @@
 #ifndef CONNECTION_H
 #define CONNECTION_H
 
+#include <QObject>
 #include <QtWidgets/QGraphicsObject>
 #include "controlblockgraphicsitem.h"
 /*!
@@ -35,6 +36,7 @@ modules in a ControlGraphicsScene.
 class Connection : public QGraphicsObject
 {
     Q_OBJECT
+
 public:
     explicit Connection(QGraphicsItem *parent = 0);
     ~Connection();

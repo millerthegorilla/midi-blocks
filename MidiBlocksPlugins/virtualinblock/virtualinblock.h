@@ -27,9 +27,10 @@ namespace Ui {
 class VirtualInBlockEditor;
 }
 
-class VirtualInBlock : public iControlBlock
+class VirtualInBlock : public QObject, public iControlBlock
 {
-    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.ChordBlock")
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.iControlBlock")
     Q_INTERFACES(iControlBlock)
 
 public:

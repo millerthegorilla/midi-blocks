@@ -19,14 +19,12 @@
 #ifndef CONTROLBLOCK_H
 #define CONTROLBLOCK_H
 
-#include <QtPlugin>
 #include <QString>
 #include <QtWidgets/QWidget>
 
-class iControlBlock : public QObject
+class iControlBlock
 {
     Q_OBJECT
-
 public:
     virtual ~iControlBlock() {}
     
@@ -39,7 +37,10 @@ protected:
     
 };
 
+#define iControlBlock_iid "MidiBlocks.MidiBlocksPlugins.iControlBlock"
 
+
+Q_DECLARE_INTERFACE(iControlBlock, iControlBlock_iid)
 
 #endif // CONTROLBLOCK_H
 

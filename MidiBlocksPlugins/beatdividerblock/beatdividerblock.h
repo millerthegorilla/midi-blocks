@@ -26,9 +26,10 @@ namespace Ui {
 class BeatDividerBlockEditor;
 }
 
-class BeatDividerBlock : public iControlBlock
+class BeatDividerBlock : public QObject, public iControlBlock
 {
-    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.BeatDividerBlock")
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.iControlBlock")
     Q_INTERFACES(iControlBlock)
 
 public:

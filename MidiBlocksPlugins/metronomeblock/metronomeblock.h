@@ -27,9 +27,10 @@ namespace Ui {
 class MetronomeBlockEditor;
 }
 
-class MetronomeBlock : public iControlBlock
+class MetronomeBlock : public QObject, public iControlBlock
 {
-    Q_PLUGIN_METADATA(IID "org.MidiBlocks.MidiBlocksPlugins.MetronomeBlock")
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "MidiBlocks.MidiBlocksPlugins.iControlBlock")
     Q_INTERFACES(iControlBlock)
 
 public:
