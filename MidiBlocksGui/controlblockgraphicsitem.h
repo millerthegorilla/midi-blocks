@@ -69,23 +69,22 @@ private:
     QGraphicsProxyWidget* m_proxyWidget;
 
     enum connectionType {
-        input = 0x01,
-        output = 0x02,
+        signal = 0x01,
+        slot = 0x02,
     };
 
     struct m_connectionInfo {
         QString name;
         QMetaMethod method;
-        int type;
     };
 
     QList<QString> m_inputs;
     QList<QString> m_outputs;
 
-    QHash<QString, QRect> m_inOutRects;
-    QHash<QMetaMethod, int> m_methodIndices;
+    QHash<m_connectionInfo, QRect> m_inOutRects;
+    QHash<m_connectionInfo, int> m_connection;
 
-    QString m_highlightedInOut;
+    bool m_highlightedInOut;
 
     int m_blockWidth;
     int m_blockHeight;

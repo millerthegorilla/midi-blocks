@@ -23,6 +23,7 @@
 #include <QtWidgets/QGraphicsSceneHoverEvent>
 #include <QDebug>
 #include <QObject>
+
 ControlBlockGraphicsItem::ControlBlockGraphicsItem(/*QGraphicsItem *parent*/) //:
     //QGraphicsObject (parent)
 {
@@ -39,7 +40,7 @@ ControlBlockGraphicsItem::ControlBlockGraphicsItem(/*QGraphicsItem *parent*/) //
 
     m_blockWidth = 100;
     m_blockHeight = 100;
-    m_highlightedInOut = "";
+    m_highlightedInOut = false;
 }
 
 ControlBlockGraphicsItem::~ControlBlockGraphicsItem()
@@ -108,54 +109,59 @@ void ControlBlockGraphicsItem::paint(QPainter *painter, const QStyleOptionGraphi
         painter->setPen(Qt::black);
         painter->setBrush(Qt::lightGray);
 
-        for (int i =0; i<m_inputs.count(); i++)
+        foreach(m_connectionInfo connection, m_connection)
         {
-            m_inOutRects[m_inputs.at(i)] = QRect(0,
-                                                 headerHeight+i*inOutHeight,
-                                                 inputWidth,
-                                                 inOutHeight);
+            m_inOutRects[connection] = \
+                    connection.method.methodType() == \
+                    QMetaMethod::Signal ?
+                    QRect(0,
+                          headerHeight+i*inOutHeight,
+                          inputWidth,
+                          inOutHeight) :
+                    QRect(inputWidth+editorWidth,
+                          headerHeight+i*inOutHeight,
+                          outputWidth,
+                          inOutHeight);
 
-            if (m_inputs.at(i) == m_highlightedInOut)
+
+            if (m_highlightedInOut)
             {
                 painter->setPen(Qt::transparent);
                 painter->setBrush(Qt::darkGray);
 
-                painter->drawRect(m_inOutRects.value(m_inputs.at(i)));
+                painter->drawRect(m_inOutRects.value(connection.name));
                 painter->setPen(Qt::white);
-                painter->drawText(m_inOutRects.value(m_inputs.at(i)), m_inputs.at(i), inputOption);
 
                 painter->setPen(Qt::black);
                 painter->setBrush(Qt::lightGray);
             }
-            else
-            {
-                painter->drawText(m_inOutRects.value(m_inputs.at(i)), m_inputs.at(i), inputOption);
-            }
+
+            painter->drawText(m_inOutRects.value(connection.name), connection.name, inputOption);
         }
-         for (int i =0; i<m_outputs.count(); i++)
-        {
-             m_inOutRects[m_outputs.at(i)] = QRect(inputWidth+editorWidth,
-                                                   headerHeight+i*inOutHeight,
-                                                   outputWidth,
-                                                   inOutHeight);
+//        for (int i =0; i<m_outputs.count(); i++)
+//        {
+//             m_inOutRects[m_outputs.at(i)] = QRect(inputWidth+editorWidth,
+//                                                   headerHeight+i*inOutHeight,
+//                                                   outputWidth,
+//                                                   inOutHeight);
 
-             if (m_outputs.at(i) == m_highlightedInOut)
-             {
-                 painter->setPen(Qt::transparent);
-                 painter->setBrush(Qt::darkGray);
+//             if (m_outputs.at(i) == m_highlightedInOut)
+//             {
+//                 painter->setPen(Qt::transparent);
+//                 painter->setBrush(Qt::darkGray);
 
-                 painter->drawRect(m_inOutRects.value(m_outputs.at(i)));
-                 painter->setPen(Qt::white);
-                 painter->drawText(m_inOutRects.value(m_outputs.at(i)), m_outputs.at(i), outputOption);
+//                 painter->drawRect(m_inOutRects.value(m_outputs.at(i)));
+//                 painter->setPen(Qt::white);
+//                 painter->drawText(m_inOutRects.value(m_outputs.at(i)), m_outputs.at(i), outputOption);
 
-                 painter->setPen(Qt::black);
-                 painter->setBrush(Qt::lightGray);
-             }
-             else
-             {
-                painter->drawText( m_inOutRects.value(m_outputs.at(i)), m_outputs.at(i), outputOption);
-             }
-        }
+//                 painter->setPen(Qt::black);
+//                 painter->setBrush(Qt::lightGray);
+//             }
+//             else
+//             {
+//                painter->drawText( m_inOutRects.value(m_outputs.at(i)), m_outputs.at(i), outputOption);
+//             }
+//        }
 
          QFont headerFont("Monospace", 10, QFont::Bold);
          painter->setFont(headerFont);
@@ -192,25 +198,32 @@ void ControlBlockGraphicsItem::setControlBlock(iControlBlock *block)
     {
         QMetaMethod* method = metaObject->method(i);
         QString signature = metaObject->normalizedSignature(method.methodSignature());
-        if (method->methodType() == QMetaMethod::Signal && signature.startsWith("send"))
+        QScopedPointer <m_connectionInfo> connectionDetails(new m_connectionInfo);
+        connectionDetails.method = method;
+        connectionDetails.name = m_block->getName();
+        if (method->enclosingMetaObject()->classInfo(0).name() == "plugin")
         {
-//            QString name = signature.mid(4, signature.indexOf('(')-4);
-//            name.replace('_', " ");
-//            name.append("->");
+           m_connection.insert(connectionDetails, i);
+//        if (method->methodType() == QMetaMethod::Signal)
+//        {
+////            QString name = signature.mid(4, signature.indexOf('(')-4);
+////            name.replace('_', " ");
+////            name.append("->");
 
-            m_methodIndices.insert(method, i);
 
-            m_outputs << name;
-        }
-        else if (method->methodType() == QMetaMethod::Slot && signature.startsWith("receive"))
-        {
-//            QString name = signature.mid(7, signature.indexOf('(')-7);
-//            name.replace('_', " ");
-//            name.push_front("->");
 
-            m_methodIndices.insert(method, i);
+////            m_outputs << name;
+//        }
+//        else if (method->methodType() == QMetaMethod::Slot && signature.startsWith("receive"))
+//        {
+////            QString name = signature.mid(7, signature.indexOf('(')-7);
+////            name.replace('_', " ");
+////            name.push_front("->");
 
-            m_inputs << name;
+//            m_connection.insert(method, i);
+
+//            m_inputs << name;
+//        }
         }
     }
 }
@@ -256,10 +269,10 @@ int ControlBlockGraphicsItem::outputAtPos(QPointF pos)
 
 void ControlBlockGraphicsItem::setHighlight(int index)
 {
-    m_highlightedInOut = m_methodIndices.key(index, "");
+    m_highlightedInOut = true;
 }
 
 void ControlBlockGraphicsItem::clearHighlights()
 {
-    m_highlightedInOut = "";
+    m_highlightedInOut = false;
 }
