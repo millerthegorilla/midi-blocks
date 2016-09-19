@@ -243,7 +243,7 @@ QRectF ControlBlockGraphicsItem::getConnectionRect(int methodIndex) const
 // ternary operator.
 int ControlBlockGraphicsItem::inputAtPos(QPointF pos)
 {
-    foreach (QString input, m_inputs)
+    foreach (QMetaMethod input, m_inputs)
     {
         if (m_inOutRects.value(input).contains(mapFromScene(pos).toPoint()))
         {
