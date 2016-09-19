@@ -96,15 +96,11 @@ void ControlBlockGraphicsItem::paint(QPainter *painter, const QStyleOptionGraphi
     painter->setBrush(QColor(80, 80, 80));
     painter->drawRect(QRect(0, 0, m_blockWidth, headerHeight));
 
-
-
     if (m_block)
     {
-
         QTextOption titleOption(Qt::AlignCenter);
         QTextOption inputOption(Qt::AlignVCenter|Qt::AlignLeft);
         QTextOption outputOption(Qt::AlignVCenter|Qt::AlignRight);
-
 
         painter->setPen(Qt::black);
         painter->setBrush(Qt::lightGray);
@@ -129,14 +125,14 @@ void ControlBlockGraphicsItem::paint(QPainter *painter, const QStyleOptionGraphi
                 painter->setPen(Qt::transparent);
                 painter->setBrush(Qt::darkGray);
 
-                painter->drawRect(m_inOutRects.value(connection.name));
+                painter->drawRect(m_inOutRects.value(connection));
                 painter->setPen(Qt::white);
 
                 painter->setPen(Qt::black);
                 painter->setBrush(Qt::lightGray);
             }
-
-            painter->drawText(m_inOutRects.value(connection.name), connection.name, inputOption);
+            //todo -  I think this should be the
+            painter->drawText(m_inOutRects.value(connection), connection.name, inputOption);
         }
 //        for (int i =0; i<m_outputs.count(); i++)
 //        {
@@ -241,6 +237,10 @@ QRectF ControlBlockGraphicsItem::getConnectionRect(int methodIndex) const
 
 }
 
+//todo might be able to use a template instead of the QSTring in the for
+//each loop so that polymorphism allows a (for each ... where .. is a..)
+// need to look at iterator for..each and examine alternative use of
+// ternary operator.
 int ControlBlockGraphicsItem::inputAtPos(QPointF pos)
 {
     foreach (QString input, m_inputs)
